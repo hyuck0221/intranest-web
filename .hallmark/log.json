@@ -1,0 +1,18 @@
+[
+  {
+    "date": "2026-10-13",
+    "scope": "app",
+    "macrostructure": "Compact workbench",
+    "theme": "Cobalt",
+    "enrichment": "none",
+    "brief": "Release density refresh and three-step setup guide"
+  },
+  {
+    "date": "2026-10-02",
+    "scope": "app",
+    "macrostructure": "Product-led workspace",
+    "theme": "Cobalt",
+    "enrichment": "none",
+    "brief": "Production UI for web and extension"
+  }
+]

@@ -1,0 +1,88 @@
+/* Shared production controls · Hallmark · pre-emit critique: P4 H5 E4 S5 R4 V4 */
+a, button { -webkit-tap-highlight-color: transparent; }
+h1, h2, h3 { font-style: normal; min-width: 0; overflow-wrap: anywhere; }
+button, a.button, .primary-button { white-space: nowrap; }
+.button, .primary-button, .quiet-button, .icon-button, .language-toggle { min-height: 36px; }
+.button, .primary-button { border-radius: var(--radius-sm); font-weight: 560; transition: transform var(--dur-fast) var(--ease-out), opacity var(--dur-fast) var(--ease-out); }
+.button-primary, .primary-button { background: var(--color-accent); color: var(--color-accent-ink); box-shadow: var(--shadow-sm); }
+.button:active:not(:disabled), .primary-button:active:not(:disabled) { transform: translateY(1px); }
+button:disabled { cursor: not-allowed; opacity: .55; }
+button.is-busy, button[aria-busy="true"] { cursor: wait; }
+input:not([type="file"]), textarea { min-height: 38px; border: 1px solid var(--color-rule); border-radius: var(--radius-sm); background: var(--color-surface); color: var(--color-ink); padding: 8px 12px; font-size: var(--text-sm); }
+input:focus, textarea:focus { outline: 2px solid var(--color-focus); outline-offset: 2px; box-shadow: none; }
+input[aria-invalid="true"], textarea[aria-invalid="true"] { border-color: var(--color-danger); }
+input:disabled, textarea:disabled { opacity: .55; cursor: not-allowed; }
+textarea { resize: vertical; }
+:focus-visible { outline: 3px solid var(--color-focus); outline-offset: 3px; }
+.form-status.is-error { color: var(--color-danger); }
+.form-status.is-success { color: var(--color-good); }
+.form-status:empty { min-height: 0; margin: 0; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; clip-path: inset(50%); overflow: clip; white-space: nowrap; }
+.search-field { position: relative; display: block; }
+.search-field .icon { position: absolute; inset: 11px auto auto 12px; color: var(--color-muted); pointer-events: none; }
+.search-field input { width: 100%; padding-inline-start: 42px; background: var(--color-soft); }
+.brand-loader img { animation: none; }
+.wordmark { letter-spacing: -.04em; font-weight: 500; }
+.wordmark img { width: 26px; height: 26px; }
+@media (hover: hover) {
+  input:not([type="file"]):hover, textarea:hover { background: var(--color-paper); }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; }
+}
+
+:lang(ko) h1, :lang(ko) h2, :lang(ko) h3, :lang(ko) p { word-break: keep-all; overflow-wrap: anywhere; }
+
+/* Compact controls retain comfortable touch targets on coarse pointers. */
+@media (pointer: coarse) {
+  .button, .primary-button, .quiet-button, .icon-button, .language-toggle, .workspace-tab, .content-tabs button, .chat-toggle { min-height: 44px; }
+  input:not([type="file"]), textarea { min-height: 44px; }
+  .search-field .icon { top: 14px; }
+}
+/* Separate upload surface with a persistent square action on file history. */
+.file-browser { position: relative; min-width: 0; }
+.upload-fab { position: absolute; right: 12px; bottom: 12px; width: 44px; height: 44px; min-height: 44px; aspect-ratio: 1; padding: 0; border-radius: var(--radius-md); box-shadow: var(--shadow-panel); display: inline-flex; align-items: center; justify-content: center; z-index: 1; }
+.upload-fab .icon { width: 20px; height: 20px; }
+.file-upload-screen { min-width: 0; min-height: 0; }
+.upload-screen-heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 12px; }
+.upload-screen-heading h2 { margin: 0; font-size: 16px; font-weight: 550; }
+.upload-screen-heading button { display: inline-flex; align-items: center; gap: 6px; }
+.upload-screen-form { display: flex; flex-direction: column; gap: 10px; min-height: 0; }
+.upload-dropzone { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; min-height: 120px; padding: 20px; border: 1px dashed var(--color-rule); border-radius: var(--radius-md); background: var(--color-surface); color: var(--color-muted); text-align: center; font-size: 12px; cursor: pointer; }
+.upload-dropzone > .icon { width: 24px; height: 24px; color: var(--color-accent); }
+.upload-dropzone input { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer; }
+.upload-dropzone.is-dragging, .upload-dropzone:hover { border-color: var(--color-accent); background: var(--color-accent-soft); }
+.upload-dropzone:focus-within { outline: 3px solid var(--color-focus); outline-offset: 2px; }
+.upload-dropzone:has(input:disabled) { opacity: .55; cursor: wait; }
+.upload-selection-label { margin: 0; font-size: 11px; color: var(--color-muted); }
+.selected-files { list-style: none; padding: 0; margin: 0; overflow-y: auto; overscroll-behavior: contain; min-height: 0; scrollbar-width: thin; }
+.selected-files li { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 8px 4px; border-bottom: var(--rule-hairline); }
+.selected-files li > div { min-width: 0; display: grid; gap: 3px; }
+.selected-files strong { font-size: 12px; font-weight: 550; overflow-wrap: anywhere; }
+.selected-files small { font-size: 10px; color: var(--color-muted); }
+.selected-files .icon-button { flex-shrink: 0; width: 32px; height: 32px; min-height: 32px; border: 0; background: transparent; color: var(--color-muted); cursor: pointer; }
+.selected-files .icon-button:hover { color: var(--color-danger); }
+#submit-upload { flex-shrink: 0; display: flex; justify-content: center; align-items: center; gap: 8px; min-height: 40px; }
+#upload-status { flex-shrink: 0; margin: 0; font-size: 11px; }
+.message-actions { display: inline-flex; align-items: center; gap: 2px; }
+.message-actions .icon-button { width: 24px; height: 24px; min-height: 24px; padding: 4px; border: 0; background: transparent; color: var(--color-muted); cursor: pointer; display: inline-flex; justify-content: center; align-items: center; }
+.message-actions .icon-button .icon { width: 13px; height: 13px; }
+.message-actions .icon-button:hover { color: var(--color-accent); }
+.message-edit-dialog { width: min(480px, calc(100% - 32px)); padding: 20px; border: var(--rule-hairline); border-radius: var(--radius-md); background: var(--color-surface); color: var(--color-ink); box-shadow: var(--shadow-raised); }
+.message-edit-dialog::backdrop { background: var(--color-shadow-strong); }
+.message-edit-dialog h2 { margin: 0 0 14px; font-size: 18px; }
+.message-edit-dialog textarea { width: 100%; min-height: 100px; font: inherit; font-size: 13px; }
+.edit-dialog-actions { display: flex; justify-content: flex-end; gap: 8px; margin-top: 12px; }
+.edit-dialog-actions button { min-height: 36px; padding: 8px 12px; border: var(--rule-hairline); border-radius: var(--radius-sm); cursor: pointer; font-size: 12px; }
+.edit-dialog-actions .primary-button { background: var(--color-accent); color: var(--color-accent-ink); }
+.chat-send-button .icon { width: 18px; height: 18px; }
+@media (pointer: coarse) { .message-actions .icon-button { width: 32px; height: 32px; min-height: 32px; } }
+/* Actions follow the bubble, with keyboard and touch access preserved. */
+.message-bubble { position: relative; display: flow-root; width: fit-content; max-width: 100%; min-width: 0; }
+.message-bubble > .message-actions { position: absolute; top: 100%; right: 0; left: auto; padding-top: 3px; opacity: 0; pointer-events: none; transition: opacity var(--dur-fast) var(--ease-out); }
+.own-message .message-bubble > .message-actions { right: auto; left: 0; }
+.message-bubble:hover > .message-actions, .message-bubble:focus-within > .message-actions { opacity: 1; pointer-events: auto; }
+@media (hover: none) { .message-bubble > .message-actions { opacity: 1; pointer-events: auto; } }
+@media (prefers-reduced-motion: reduce) { .message-bubble > .message-actions { transition: none; } }
+.message-bubble > p { min-width: 50px; }
+@media (hover: none) { .message-bubble > p { min-width: 66px; } }
